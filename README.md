@@ -7,9 +7,9 @@ The principal feature of the Navigator is the ability for users to define layers
 ## Usage
 
 You can read more about how to use the application itself in the [USAGE](/USAGE.md) document (which is mirrored in the in-app help page).
-Please see [Install and Run](#Install-and-Run) for information on how to get the VEIL Navigator set up locally.
+Please see [Install and Run](#Install-and-Run) for information on how to get the UNVEIL Navigator set up locally.
 
-**Important Note:** Layer files uploaded when visiting our Navigator instance hosted on GitHub Pages are **NOT** being stored on the server side, as the Navigator is a client-side only application. However, we still recommend installing and running your own instance of the VEIL Navigator if your layer files contain any sensitive content.
+**Important Note:** Layer files uploaded when visiting our Navigator instance hosted on GitHub Pages are **NOT** being stored on the server side, as the Navigator is a client-side only application. However, we still recommend installing and running your own instance of the UNVEIL Navigator if your layer files contain any sensitive content.
 
 Use our [GitHub Issue Tracker](https://github.com/UNVEILFramework/unveil-navigator/issues) to let us know of any bugs or others issues that you encounter. We also encourage pull requests if you've extended the Navigator in a cool way and want to share back to the community!
 
