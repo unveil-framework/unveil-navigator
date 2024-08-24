@@ -1,11 +1,11 @@
 {
-    "name": "attack-navigator",
-    "description": "Web app that provides basic navigation and annotation of ATT&CK matrices",
+    "name": "unveil-navigator",
+    "description": "Web app that provides basic navigation and annotation of UNVEIL matrices",
     "repository": {
         "type": "git",
-        "url": "https://github.com/mitre-attack/attack-navigator.git"
+        "url": "https://github.com/UNVEILFramework/unveil-navigator.git"
     },
-    "version": "5.0.1",
+    "version": "1.0.0",
     "license": "Apache-2.0",
     "scripts": {
         "ng": "ng",

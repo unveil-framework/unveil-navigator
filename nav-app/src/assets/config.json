@@ -1,17 +1,17 @@
 {
-	"collection_index_url": "https://raw.githubusercontent.com/mitre-attack/attack-stix-data/master/index.json",
+	"collection_index_url": null,
 
     "versions": {
-		"enabled": false,
+		"enabled": true,
 		"entries": [
 			{
-				"name": "Custom Data v14",
-				"version": "14",
+				"name": "UNVEIL Framework v1.0.0",
+				"version": "1.0.0",
 				"domains": [
 					{
-						"name": "Enterprise",
-						"identifier": "enterprise-attack",
-						"data": ["assets/custom-enterprise-attack.json"]
+						"name": "UNVEIL Framework",
+						"identifier": "unveil",
+						"data": ["assets/data/latest.json"]
 					}
 				]
 			}

@@ -4,7 +4,7 @@
         <div class="banner">
             <span class="bannerContent" role="alert" [innerHTML]="bannerContent"></span>
             <div class="bannerLinks">
-                <a href="http://attack.mitre.org">MITRE ATT&CK&reg;</a>
+                <a href="https://unveilframework.net">UNVEIL Framework</a>
             </div>
         </div>
     </div>
@@ -110,11 +110,11 @@
     <div class="new-tab">
         <div class="description">
             <div class="logo">
-                <h1><a href="http://attack.mitre.org">MITRE ATT&CK&reg; Navigator</a></h1>
+                <h1><a href="https://github.com/UNVEILFramework/unveil-navigator">UNVEIL Navigator</a></h1>
             </div>
             <div>
                 <p>
-                    The ATT&CK Navigator is a web-based tool for annotating and exploring ATT&CK matrices. It can be used to visualize defensive
+                    The UNVEIL Navigator is a web-based tool based on MITRE ATT&CK Navigator for annotating and exploring UNVEIL matrices. It can be used to visualize defensive
                     coverage, red/blue team planning, the frequency of detected techniques, and more.
                 </p>
             </div>
@@ -137,7 +137,7 @@
             <!-- Create new layer interface -->
             <mat-expansion-panel #newlayer>
                 <mat-expansion-panel-header>
-                    <mat-panel-title>Create New Layer</mat-panel-title>
+                    <mat-panel-title>Create new layer</mat-panel-title>
                     <mat-panel-description>Create a new empty layer</mat-panel-description>
                 </mat-expansion-panel-header>
 
@@ -151,7 +151,7 @@
                 <!-- More domain/version options -->
                 <mat-expansion-panel>
                     <mat-expansion-panel-header>
-                        <mat-panel-title>More Options</mat-panel-title>
+                        <mat-panel-title>More options</mat-panel-title>
                     </mat-expansion-panel-header>
 
                     <div class="multi-column multi-column-container">
@@ -176,7 +176,7 @@
                             </mat-form-field>
                             <!-- note -->
                             <span class="text-deemphasis">
-                                *Note: ATT&CK Versions prior to v{{ minimumSupportedVersion }} are not supported by Navigator v{{ navVersion }}.
+                                *Note: UNVEIL versions prior to v{{ minimumSupportedVersion }} are not supported by Navigator v{{ navVersion }}.
                             </span>
                         </div>
                         <div class="or-column">
@@ -190,12 +190,12 @@
                             <!-- bundle version number -->
                             <mat-form-field>
                                 <input type="number" matInput placeholder="Bundle version number" [(ngModel)]="loadData.version" />
-                                <mat-hint>ATT&CK version (e.g. 12)</mat-hint>
+                                <mat-hint>UNVEIL version (e. g. 1.0)</mat-hint>
                             </mat-form-field>
                             <!-- bundle domain identifier -->
                             <mat-form-field>
                                 <input type="text" matInput placeholder="Bundle domain" [(ngModel)]="loadData.identifier" />
-                                <mat-hint>Domain identifier (e.g. defending-iaas)</mat-hint>
+                                <mat-hint>Domain identifier (e. g. defending-iaas)</mat-hint>
                             </mat-form-field>
                         </div>
                     </div>
@@ -223,7 +223,7 @@
             <!-- Open existing layer interface -->
             <mat-expansion-panel>
                 <mat-expansion-panel-header>
-                    <mat-panel-title>Open Existing Layer</mat-panel-title>
+                    <mat-panel-title>Open existing layer</mat-panel-title>
                     <mat-panel-description>Load a layer from your computer or a URL</mat-panel-description>
                 </mat-expansion-panel-header>
 
@@ -255,7 +255,7 @@
             <!-- Create layer from other layers -->
             <mat-expansion-panel (opened)="activeTab.showScoreVariables = true" (closed)="activeTab.showScoreVariables = false">
                 <mat-expansion-panel-header>
-                    <mat-panel-title>Create Layer from Other Layers</mat-panel-title>
+                    <mat-panel-title>Create layer from other layers</mat-panel-title>
                     <mat-panel-description>Select layers to inherit properties from</mat-panel-description>
                 </mat-expansion-panel-header>
 
@@ -458,14 +458,14 @@
             <!-- Customized Navigator-->
             <mat-expansion-panel>
                 <mat-expansion-panel-header>
-                    <mat-panel-title>Create Customized Navigator</mat-panel-title>
-                    <mat-panel-description>Create a hyperlink to a customized ATT&CK Navigator</mat-panel-description>
+                    <mat-panel-title>Create customized navigator</mat-panel-title>
+                    <mat-panel-description>Create a hyperlink to a customized UNVEIL Navigator</mat-panel-description>
                 </mat-expansion-panel-header>
 
                 <div class="multi-column-container">
                     <div class="section">
                         <!-- default layers-->
-                        <h2>Default Layers</h2>
+                        <h2>Default layers</h2>
                         <div class="multi-column left-align">
                             <div class="md-column">
                                 <ul class="layer-links">
@@ -493,7 +493,7 @@
 
                     <div class="section">
                         <!-- navigator features -->
-                        <h2>Navigator Features</h2>
+                        <h2>Navigator features</h2>
                         <ng-container *ngFor="let feature of configService.featureList">
                             <div *ngIf="!feature.subfeatures" class="multi-column left-align feature-row">
                                 <div class="md-column align-center">

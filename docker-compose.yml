@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  veil:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: veil
+    ports:
+      - "4200:4200"
+    volumes:
+      - ./data:/src/nav-app/src/assets/data
+

@@ -16,7 +16,7 @@ export class AppComponent implements OnInit {
 
     navVersion: string = globals.navVersion;
     public user_theme: string;
-    title = 'ATT&CK® Navigator';
+    title = 'UNVEIL Navigator';
 
     @HostListener('window:beforeunload', ['$event'])
     promptNavAway($event) {
