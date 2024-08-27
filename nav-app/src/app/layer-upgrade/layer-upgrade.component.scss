@@ -151,7 +151,8 @@ tr td {
     @include adaptive-color('color', rgba(0, 0, 0, 0.15), color(dark-link));
 }
 .dndDragover .technique-cell {
-    box-shadow: 0 0 0 1px color(cell-highlight-color) inset !important;
+    box-shadow: 0 0 0 5px color(cell-highlight-color) inset !important;
+    font-weight: bolder;
 }
 .mat-vertical-stepper-header {
     pointer-events: none;
