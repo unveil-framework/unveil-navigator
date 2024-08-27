@@ -198,7 +198,7 @@
             "created_by_ref": "identity--2b4da9be-1d15-4fba-ae14-2aaff4d782e3",
             "created": "2024-08-24T13:11:26.740125Z",
             "modified": "2024-08-24T13:11:26.740125Z",
-            "name": "UTA10 - Detect and Respond",
+            "name": "UTA10 - Counter",
             "description": "TODO.",
             "external_references": [
                 {
@@ -6456,7 +6456,7 @@
             "created_by_ref": "identity--2b4da9be-1d15-4fba-ae14-2aaff4d782e3",
             "created": "2024-08-24T13:11:26.773465Z",
             "modified": "2024-08-24T13:11:26.773465Z",
-            "name": "Tailoring: Perceptual filters (PALIO)",
+            "name": "Tailor the message:Perceptual filters (PALIO)",
             "description": "TODO.",
             "kill_chain_phases": [
                 {
@@ -6489,7 +6489,7 @@
             "created_by_ref": "identity--2b4da9be-1d15-4fba-ae14-2aaff4d782e3",
             "created": "2024-08-24T13:11:26.773628Z",
             "modified": "2024-08-24T13:11:26.773628Z",
-            "name": "Tailoring: Sensory filters (VAKO)",
+            "name": "Tailor the message:Sensory filters (VAKO)",
             "description": "TODO.",
             "kill_chain_phases": [
                 {
@@ -6522,7 +6522,7 @@
             "created_by_ref": "identity--2b4da9be-1d15-4fba-ae14-2aaff4d782e3",
             "created": "2024-08-24T13:11:26.773793Z",
             "modified": "2024-08-24T13:11:26.773793Z",
-            "name": "Tailoring: Processing size",
+            "name": "Tailor the message:Processing size",
             "description": "TODO.",
             "kill_chain_phases": [
                 {
@@ -6555,7 +6555,7 @@
             "created_by_ref": "identity--2b4da9be-1d15-4fba-ae14-2aaff4d782e3",
             "created": "2024-08-24T13:11:26.773962Z",
             "modified": "2024-08-24T13:11:26.773962Z",
-            "name": "Tailoring: Need for closure",
+            "name": "Tailor the message:Need for closure",
             "description": "TODO.",
             "kill_chain_phases": [
                 {
@@ -6588,7 +6588,7 @@
             "created_by_ref": "identity--2b4da9be-1d15-4fba-ae14-2aaff4d782e3",
             "created": "2024-08-24T13:11:26.774152Z",
             "modified": "2024-08-24T13:11:26.774152Z",
-            "name": "Tailoring: Need for cognition",
+            "name": "Tailor the message:Need for cognition",
             "description": "TODO.",
             "kill_chain_phases": [
                 {
@@ -6621,7 +6621,7 @@
             "created_by_ref": "identity--2b4da9be-1d15-4fba-ae14-2aaff4d782e3",
             "created": "2024-08-24T13:11:26.774318Z",
             "modified": "2024-08-24T13:11:26.774318Z",
-            "name": "Tailoring: Emotions",
+            "name": "Tailor the message:Emotions",
             "description": "TODO.",
             "kill_chain_phases": [
                 {
@@ -6654,7 +6654,7 @@
             "created_by_ref": "identity--2b4da9be-1d15-4fba-ae14-2aaff4d782e3",
             "created": "2024-08-24T13:11:26.774484Z",
             "modified": "2024-08-24T13:11:26.774484Z",
-            "name": "Tailoring: Arousal",
+            "name": "Tailor the message:Arousal",
             "description": "TODO.",
             "kill_chain_phases": [
                 {
@@ -6687,7 +6687,7 @@
             "created_by_ref": "identity--2b4da9be-1d15-4fba-ae14-2aaff4d782e3",
             "created": "2024-08-24T13:11:26.77465Z",
             "modified": "2024-08-24T13:11:26.77465Z",
-            "name": "Tailoring: Social desirability",
+            "name": "Tailor the message:Social desirability",
             "description": "TODO.",
             "kill_chain_phases": [
                 {
@@ -6720,7 +6720,7 @@
             "created_by_ref": "identity--2b4da9be-1d15-4fba-ae14-2aaff4d782e3",
             "created": "2024-08-24T13:11:26.774814Z",
             "modified": "2024-08-24T13:11:26.774814Z",
-            "name": "Tailoring: Social identity",
+            "name": "Tailor the message:Social identity",
             "description": "TODO.",
             "kill_chain_phases": [
                 {
@@ -6753,7 +6753,7 @@
             "created_by_ref": "identity--2b4da9be-1d15-4fba-ae14-2aaff4d782e3",
             "created": "2024-08-24T13:11:26.774998Z",
             "modified": "2024-08-24T13:11:26.774998Z",
-            "name": "Tailoring: Morality",
+            "name": "Tailor the message:Morality",
             "description": "TODO.",
             "kill_chain_phases": [
                 {
@@ -6786,7 +6786,7 @@
             "created_by_ref": "identity--2b4da9be-1d15-4fba-ae14-2aaff4d782e3",
             "created": "2024-08-24T13:11:26.775166Z",
             "modified": "2024-08-24T13:11:26.775166Z",
-            "name": "Tailoring: Political affiliation",
+            "name": "Tailor the message:Political affiliation",
             "description": "TODO.",
             "kill_chain_phases": [
                 {
@@ -6819,7 +6819,7 @@
             "created_by_ref": "identity--2b4da9be-1d15-4fba-ae14-2aaff4d782e3",
             "created": "2024-08-24T13:11:26.775331Z",
             "modified": "2024-08-24T13:11:26.775331Z",
-            "name": "Tailoring: Cultural bases",
+            "name": "Tailor the message:Cultural bases",
             "description": "TODO.",
             "kill_chain_phases": [
                 {
@@ -6852,7 +6852,7 @@
             "created_by_ref": "identity--2b4da9be-1d15-4fba-ae14-2aaff4d782e3",
             "created": "2024-08-24T13:11:26.775496Z",
             "modified": "2024-08-24T13:11:26.775496Z",
-            "name": "Tailoring: Personality profile",
+            "name": "Tailor the message:Personality profile",
             "description": "TODO.",
             "kill_chain_phases": [
                 {
@@ -6885,7 +6885,7 @@
             "created_by_ref": "identity--2b4da9be-1d15-4fba-ae14-2aaff4d782e3",
             "created": "2024-08-24T13:11:26.775661Z",
             "modified": "2024-08-24T13:11:26.775661Z",
-            "name": "Tailoring: Present rational arguments",
+            "name": "Tailor the message:Present rational arguments",
             "description": "TODO.",
             "kill_chain_phases": [
                 {
@@ -6918,7 +6918,7 @@
             "created_by_ref": "identity--2b4da9be-1d15-4fba-ae14-2aaff4d782e3",
             "created": "2024-08-24T13:11:26.775833Z",
             "modified": "2024-08-24T13:11:26.775833Z",
-            "name": "Tailoring: Present emotional arguments",
+            "name": "Tailor the message:Present emotional arguments",
             "description": "TODO.",
             "kill_chain_phases": [
                 {
