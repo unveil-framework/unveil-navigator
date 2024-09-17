@@ -11,7 +11,7 @@
 					{
 						"name": "UNVEIL Framework",
 						"identifier": "unveil",
-						"data": ["assets/data/latest.json"]
+						"data": ["https://unveilframework.net/UNVEIL.json"]
 					}
 				]
 			}
