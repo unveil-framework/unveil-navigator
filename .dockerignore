@@ -1,3 +1,7 @@
+.git/
+.github/
 node_modules/
+nav-app/node_modules/
+nav-app/dist/
 tests/
 *.spec.ts

@@ -4,6 +4,7 @@ import { Technique, Tactic, Matrix } from '../../classes/stix';
 import { ConfigService } from '../../services/config.service';
 import { Cell } from '../cell';
 import { ViewModelsService } from '../../services/viewmodels.service';
+import tinycolor from 'tinycolor2';
 
 @Component({
     selector: 'technique-cell',
@@ -97,5 +98,40 @@ export class TechniqueCellComponent extends Cell implements OnInit {
         if (this.isCellPinned) theclass += ' editing';
 
         return theclass;
+    }
+
+    public getTooltipStyle(): any {
+        const background = this.getTechniqueAccentColor();
+        if (!background) return null;
+        const color = tinycolor.mostReadable(background, ['white', 'black']).toHexString();
+        return {
+            background,
+            color,
+            '--tooltip-arrow-color': background,
+        };
+    }
+
+    private getTechniqueAccentColor(): string {
+        if (!this.tactic) return '';
+        const tvm = this.viewModel.getTechniqueVM(this.technique, this.tactic);
+        if (!tvm.enabled) return '';
+        if (tvm.color && this.configService.getFeature('background_color')) return this.colorToHex(this.emulate_alpha(tvm.color));
+        if (
+            this.viewModel.layout.showAggregateScores &&
+            this.technique.subtechniques.length > 0 &&
+            !isNaN(Number(tvm.aggregateScore)) &&
+            tvm.aggregateScore.length > 0 &&
+            this.configService.getFeature('aggregate_score_color')
+        ) {
+            return this.colorToHex(this.emulate_alpha(tvm.aggregateScoreColor));
+        }
+        if (tvm.score && this.configService.getFeature('non_aggregate_score_color')) return this.colorToHex(this.emulate_alpha(tvm.scoreColor));
+        return '';
+    }
+
+    private colorToHex(color: any): string {
+        if (!color) return '';
+        if (typeof color === 'string') return color;
+        return color.toHexString();
     }
 }

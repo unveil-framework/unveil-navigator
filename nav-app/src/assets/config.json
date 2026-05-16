@@ -27,6 +27,10 @@
         "urls": ["assets/example.json", "https://raw.githubusercontent.com/mitre-attack/attack-navigator/master/layers/data/samples/Bear_APT.json"]
     },
 
+    "technique_enrichments": {
+        "sources": ["assets/data/unveil-technique-descriptions.json"]
+    },
+
     "comment_color": "yellow",
     "link_color": "blue",
     "metadata_color": "purple",

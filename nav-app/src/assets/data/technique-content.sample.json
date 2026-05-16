@@ -1,0 +1,8 @@
+{
+    "techniques": [
+        {
+            "techniqueID": "T0000",
+            "description": "Expanded local description for this technique. This content can be generated from a .docx and loaded without changing the application code."
+        }
+    ]
+}

@@ -160,7 +160,7 @@ export class DataService {
                 if (domain.relationships.subtechniques_of.has(techniqueSDO.id)) {
                     domain.relationships.subtechniques_of.get(techniqueSDO.id).forEach((sub_id) => {
                         if (idToTechniqueSDO.has(sub_id)) {
-                            let subtechnique = new Technique(idToTechniqueSDO.get(sub_id), [], this);
+                            let subtechnique = new Technique(this.applyTechniqueEnrichment(idToTechniqueSDO.get(sub_id)), [], this);
                             subtechniques.push(subtechnique);
                             domain.subtechniques.push(subtechnique);
                         }
@@ -168,8 +168,36 @@ export class DataService {
                     });
                 }
             }
-            domain.techniques.push(new Technique(techniqueSDO, subtechniques, this));
+            domain.techniques.push(new Technique(this.applyTechniqueEnrichment(techniqueSDO), subtechniques, this));
         }
+    }
+
+    /**
+     * Apply optional config-based enrichment to a technique before instantiation.
+     * This is intended for local content overlays generated from external sources.
+     * @param techniqueSDO source STIX object
+     * @returns cloned technique object with enrichment applied when available
+     */
+    public applyTechniqueEnrichment(techniqueSDO: any): any {
+        const attackID = techniqueSDO?.external_references?.[0]?.external_id;
+        if (!attackID) return techniqueSDO;
+
+        const enrichment = this.configService.getTechniqueEnrichment(attackID);
+        if (!enrichment?.description && !enrichment?.url) return techniqueSDO;
+
+        const externalReferences = techniqueSDO.external_references ? [...techniqueSDO.external_references] : [];
+        if (enrichment?.url && externalReferences[0]) {
+            externalReferences[0] = {
+                ...externalReferences[0],
+                url: enrichment.url,
+            };
+        }
+
+        return {
+            ...techniqueSDO,
+            description: enrichment.description || techniqueSDO.description,
+            external_references: externalReferences,
+        };
     }
 
     /**

@@ -1,0 +1,7 @@
+# UT0802 - Report encounter or interaction
+
+**Tactic:** [UTA08 - Debrief and Archive](./README.md)
+
+## Description
+
+The handler may write down the key points of each encounter or interaction with the source, providing a detailed chronological list of interactions. Although this may not be the case of all online interactions (which can be logged easily when using online applications), it can be the case in certain interactions such as, for example, when the source is being assigned a specific task or duty. This process can include documenting who initiated the meeting and the notice period given before the encounter, which shows the urgency and formal nature of the request (e. g., official, standard. or urgent). The method of requesting the meeting should be noted alongside any persistence shown in maintaining the engagement, indicating the importance or sensitivity of the discussion. Additionally, the handler may register the selection of communication channel used and who reaches the meeting point first, as well as any preliminary scouting done considered necessary to secure either the meeting location or the digital environment by both sides, handler and source. Observations about the source’s attitude, especially deviations from their baseline behavior, should be carefully noted, specifically when assigning new tasks or bringing information considered to be sensitive for the source, providing insights into their current psychological state and potential pressures or influences if identified.

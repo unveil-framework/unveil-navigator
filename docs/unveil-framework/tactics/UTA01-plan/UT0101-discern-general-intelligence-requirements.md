@@ -1,0 +1,7 @@
+# UT0101 - Discern general intelligence requirements
+
+**Tactic:** [UTA01 - Plan](./README.md)
+
+## Description
+
+The handler may plan the main objectives of the HUMINT operation they are about to conduct, which refer to the general intelligence requirements of the agency even in the preliminary stages of a HUMINT operation. These requirements are fundamental as they define what information the intelligence agency seeks to gather in a broader theater of operations. By identifying these needs, handlers can effectively plan and prioritize the objectives of the operation. The intelligence requirements typically align with the strategic goals of the agency and provide a framework that guides the entire intelligence-gathering process. The requirements may be assessed regarding their feasibility (if a requirement “can be answered with the available time and resources”), completeness (if the requirement “contains all the specifics needed for collection”) and necessity (if a requirement has not already been answered and registered)70. Intelligence requirements must consider the timeliness, that is, when the required information must be received by the superior. This technique differs from UT0103.001 - Develop strategy: Identify collection requirements in the fact that UT0103.001 refers to a tactic level (for example, the source needs to know the dates the person of interest is in the country or how often they visit), while UT0101 refers to the general needs of the operation (using the same example, to locate a specific individual person of interest).

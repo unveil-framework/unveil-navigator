@@ -21,6 +21,12 @@ $ docker compose up --build -d
 
 This will start everything you need to start a new service locally in port 4200.
 
+The Docker image now serves a production Angular build through `nginx` instead of running the development server inside the container. This makes startup more predictable and avoids the extra watch/compile overhead that can make `docker compose up` feel blocked.
+
+For production rebuild/recreate steps and checks, see [docs/deployment.md](/docs/deployment.md).
+
+Interface-specific choices for this fork are documented in [docs/design-decisions.md](/docs/design-decisions.md).
+
 ## Usage
 
 You can read more about how to use the application itself in the [USAGE](/USAGE.md) document (which is mirrored in the in-app help page).
@@ -29,6 +35,16 @@ When viewing the Navigator in a browser, click on the **?** icon in the upper ri
 ## Advanced features 
 
 There are some advanced settings which can be configured. 
+
+## Technique Content Enrichment
+
+The application can optionally overlay local technique descriptions from JSON files declared in `nav-app/src/assets/config.json`. This is intended as the clean integration point for content maintained in `.docx` and converted offline.
+
+See [docs/technique-content-integration.md](/docs/technique-content-integration.md) for the expected JSON format and the recommended workflow.
+
+Framework Markdown documentation is generated under `docs/unveil-framework/`. Run
+`python3 scripts/generate_framework_docs.py` after updating technique descriptions to refresh
+the tactic/technique pages and the Navigator `view` links.
 
 ### Disabling Navigator Features
 

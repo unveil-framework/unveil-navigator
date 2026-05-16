@@ -1,15 +1,18 @@
-<div [ngClass]="'tooltip ' + placement" [style.width]="isCellPinned ? '200ch' : ''">
+<div [ngClass]="'tooltip ' + placement" [ngStyle]="tooltipStyle" (click)="forwardClick($event)">
     <table>
         <tr>
             <td colspan="2" class="technique-name">
                 <span>{{ technique.name }} ({{ technique.attackID }})</span>
-                <span *ngIf="isCellPinned" class="pin" matTooltip="unpin" matTooltipPosition="above" (click)="unpin()">
+                <span *ngIf="isCellPinned" class="pin" matTooltip="unpin" matTooltipPosition="above" (click)="unpin(); $event.stopPropagation()">
                     <mat-icon>push_pin</mat-icon>
                 </span>
             </td>
         </tr>
         <tr *ngIf="!techniqueVM.enabled">
             <td colspan="2">Disabled</td>
+        </tr>
+        <tr *ngIf="technique.description">
+            <td colspan="2" class="wrap description">{{ technique.description }}</td>
         </tr>
         <tr *ngIf="techniqueVM.score">
             <td>Score:</td>

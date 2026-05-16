@@ -4,22 +4,33 @@
 .tooltip {
     @include cell-popover(0.75);
     @include adaptive-color('background', rgba(80, 80, 80, 0.75), rgba(#464dff, 0.75));
+    box-sizing: border-box;
+    width: 420px;
+    max-width: calc(100vw - 32px);
     max-height: 45vh;
-    overflow: scroll;
+    overflow: auto;
     padding-bottom: 1em;
     z-index: 1000;
     cursor: default;
+    pointer-events: auto;
+    &:before {
+        color: var(--tooltip-arrow-color);
+    }
     table {
         width: 100%;
+        table-layout: fixed;
         border-collapse: collapse;
         td {
             padding: 3px;
             vertical-align: top;
             white-space: pre-line !important;
+            overflow-wrap: anywhere;
         }
         td:first-child {
-            white-space: nowrap;
+            width: 3.5rem;
             padding-bottom: 3px !important;
+            white-space: normal;
+            overflow-wrap: normal;
         }
         td.wrap {
             white-space: normal;
@@ -36,7 +47,15 @@
             }
         }
         .technique-name span {
+            font-size: 1.25em;
+            font-weight: 700;
+            line-height: 1.25;
+            text-decoration: underline;
+            text-underline-offset: 3px;
             vertical-align: middle;
+        }
+        .description {
+            padding-top: 6px;
         }
         .pin {
             @include adaptive-color('background-color', rgba(160, 160, 160, 0.75), rgba(#8f92fe, 0.75));

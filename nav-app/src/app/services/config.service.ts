@@ -2,7 +2,13 @@ import { Injectable } from '@angular/core';
 import { ContextMenuItem } from '../classes/context-menu-item';
 import { HttpClient } from '@angular/common/http';
 import { catchError, map, switchMap, tap } from 'rxjs/operators';
-import { of } from 'rxjs';
+import { forkJoin, of } from 'rxjs';
+
+type TechniqueEnrichment = {
+    techniqueID: string;
+    description?: string;
+    url?: string;
+};
 
 @Injectable({
     providedIn: 'root',
@@ -23,6 +29,7 @@ export class ConfigService {
     public metadataColor = 'purple';
     public banner: string;
     public featureList: any[] = [];
+    public techniqueEnrichments = new Map<string, TechniqueEnrichment>();
 
     private features = new Map<string, boolean>();
     private featureGroups = new Map<string, string[]>();
@@ -179,6 +186,15 @@ export class ConfigService {
     }
 
     /**
+     * Get optional enrichment data for a technique.
+     * @param attackID technique ATT&CK/UNVEIL identifier
+     * @returns enrichment data or undefined
+     */
+    public getTechniqueEnrichment(attackID: string): TechniqueEnrichment | undefined {
+        return this.techniqueEnrichments.get(attackID);
+    }
+
+    /**
      * Validate that the configuration file specifies a collection index URL
      * or a list of versions/domains
      * @param config the configuration to validate
@@ -191,7 +207,50 @@ export class ConfigService {
         if (config.collection_index_url && typeof config.collection_index_url !== typeof 'string') {
             throw new Error(`'collection_index_url' must be a string`);
         }
+        if (config.technique_enrichments) {
+            const sources = config.technique_enrichments.sources;
+            if (!Array.isArray(sources) || sources.some((source) => typeof source !== 'string')) {
+                throw new Error(`'technique_enrichments.sources' must be an array of strings`);
+            }
+        }
         return config;
+    }
+
+    /**
+     * Load optional technique enrichment files and normalize them to a single array.
+     * Each file may contain either an array or an object with a 'techniques' array.
+     * @param techniqueEnrichments configuration block
+     * @returns observable of normalized enrichment entries
+     */
+    public loadTechniqueEnrichments(techniqueEnrichments: any) {
+        if (!techniqueEnrichments?.sources?.length) {
+            return of([]);
+        }
+
+        const requests = techniqueEnrichments.sources.map((source: string) => this.http.get(source));
+        return forkJoin(requests).pipe(
+            map((responses: any[]) =>
+                responses.reduce((allEntries, response) => {
+                    const responseEntries = Array.isArray(response) ? response : response?.techniques;
+                    if (!Array.isArray(responseEntries)) {
+                        throw new Error(`Technique enrichment file must contain an array or a 'techniques' array.`);
+                    }
+                    return allEntries.concat(responseEntries);
+                }, [])
+            )
+        );
+    }
+
+    /**
+     * Persist enrichment data as a lookup table keyed by technique ID.
+     * @param techniqueEnrichments enrichment entries
+     */
+    public setTechniqueEnrichments(techniqueEnrichments: TechniqueEnrichment[]): void {
+        techniqueEnrichments.forEach((entry) => {
+            if (entry?.techniqueID && typeof entry.techniqueID === 'string') {
+                this.techniqueEnrichments.set(entry.techniqueID, entry);
+            }
+        });
     }
 
     /**
@@ -230,18 +289,25 @@ export class ConfigService {
 
                     // parse configured domains and versions
                     this.versions = config['versions'];
-                    if (config['collection_index_url']) {
-                        return this.http.get(config['collection_index_url']).pipe(
-                            tap((_) => console.log('loaded collection index from', config['collection_index_url'])),
-                            catchError((err) => {
-                                throw new Error('collection index failed to load. ' + err.message);
-                            })
-                        );
-                    }
-                    return of(null);
+                    const collectionIndex$ = config['collection_index_url']
+                        ? this.http.get(config['collection_index_url']).pipe(
+                              tap((_) => console.log('loaded collection index from', config['collection_index_url'])),
+                              catchError((err) => {
+                                  throw new Error('collection index failed to load. ' + err.message);
+                              })
+                          )
+                        : of(null);
+
+                    const techniqueEnrichments$ = this.loadTechniqueEnrichments(config['technique_enrichments']);
+
+                    return forkJoin({
+                        collectionIndex: collectionIndex$,
+                        techniqueEnrichments: techniqueEnrichments$,
+                    });
                 }),
-                map((collectionIndex: any) => {
-                    if (collectionIndex) this.collectionIndex = collectionIndex;
+                map((loadedConfig: any) => {
+                    if (loadedConfig.collectionIndex) this.collectionIndex = loadedConfig.collectionIndex;
+                    this.setTechniqueEnrichments(loadedConfig.techniqueEnrichments);
                 }),
                 catchError((err) => {
                     alert(`ERROR the configuration file failed to parse. See the javascript console for more details.`);

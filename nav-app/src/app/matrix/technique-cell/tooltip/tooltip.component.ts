@@ -15,6 +15,7 @@ export class TooltipComponent extends CellPopover implements OnInit {
     @Input() technique: Technique;
     @Input() tactic: Tactic;
     @Input() viewModel: ViewModel;
+    @Input() tooltipStyle: any;
     public placement: string;
     public notes: Note[];
 
@@ -48,5 +49,29 @@ export class TooltipComponent extends CellPopover implements OnInit {
 
     public unpin(): void {
         this.viewModelsService.pinnedCell = '';
+    }
+
+    public forwardClick(event: MouseEvent): void {
+        const tooltipElement = this.element.nativeElement.querySelector('.tooltip') as HTMLElement;
+        if (!tooltipElement) return;
+
+        tooltipElement.style.pointerEvents = 'none';
+        const target = document.elementFromPoint(event.clientX, event.clientY) as HTMLElement;
+        tooltipElement.style.pointerEvents = '';
+
+        const techniqueCell = target?.closest('technique-cell .technique-cell > div') as HTMLElement;
+        if (techniqueCell) {
+            techniqueCell.dispatchEvent(
+                new MouseEvent('click', {
+                    bubbles: true,
+                    cancelable: true,
+                    clientX: event.clientX,
+                    clientY: event.clientY,
+                    shiftKey: event.shiftKey,
+                    ctrlKey: event.ctrlKey,
+                    metaKey: event.metaKey,
+                })
+            );
+        }
     }
 }

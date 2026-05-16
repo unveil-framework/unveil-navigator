@@ -137,10 +137,30 @@
     .logo {
         text-align: center;
         font-size: 1em;
+        img {
+            width: 92px;
+            height: 92px;
+            object-fit: contain;
+            margin-bottom: 14px;
+            filter: drop-shadow(0 10px 18px rgba(0, 0, 0, 0.18));
+        }
+        h1 {
+            margin: 0 0 18px;
+            font-family: Georgia, 'Times New Roman', serif;
+            font-size: clamp(2rem, 4.8vw, 3.6rem);
+            letter-spacing: 0.04em;
+            line-height: 1;
+        }
         a {
+            display: inline-block;
+            padding: 0.12em 0.32em 0.18em;
+            border-radius: 0.18em;
             text-decoration: none;
             color: #9f00ff;
-            font-weight: bold;
+            background: rgba(159, 0, 255, 0.1);
+            font-weight: 800;
+            box-shadow: 0 12px 28px rgba(159, 0, 255, 0.16);
+            text-shadow: 0 2px 12px rgba(159, 0, 255, 0.22);
         }
     }
 }
